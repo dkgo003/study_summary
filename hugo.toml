@@ -1,0 +1,16 @@
+baseURL = "https://dkgo003.github.io/study_summary/"
+languageCode = "ko-kr"
+title = "Study Summary"
+
+defaultContentLanguage = "ko"
+enableRobotsTXT = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
