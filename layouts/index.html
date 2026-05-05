@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Technical Study Notes</p>
+      <h1>실습하며 배운 내용을<br>나중에 다시 찾기 쉽게 정리합니다.</h1>
+      <p class="hero-copy">GCP, Terraform, Kubernetes 같은 기술 학습 기록을 문제·명령어·결과 중심으로 압축한 스터디 요약 사이트입니다.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#latest-notes">최근 노트 보기</a>
+        <a class="button ghost" href="{{ "GCP/" | relURL }}">GCP 섹션</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="사이트 특징">
+      <span class="card-kicker">Note style</span>
+      <ul>
+        <li>실습 목적과 핵심 개념 먼저 정리</li>
+        <li>명령어와 코드블럭 가독성 강화</li>
+        <li>다크/라이트 모드 자동 대응</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section id="latest-notes" class="section shell">
+  <div class="section-heading">
+    <p class="eyebrow">Latest</p>
+    <h2>최근 스터디 노트</h2>
+  </div>
+  <div class="note-grid">
+    {{ range first 12 .Site.RegularPages }}
+      <article class="note-card">
+        <div class="note-meta">
+          <span>{{ .Section }}</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
+        <a class="read-more" href="{{ .RelPermalink }}">읽기 →</a>
+      </article>
+    {{ else }}
+      <p class="empty">아직 발행된 노트가 없습니다.</p>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -3,11 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}기술 학습 노트와 스터디 요약을 모아둔 공간입니다.{{ end }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ "css/study.css" | relURL }}">
 </head>
 <body>
-  <main>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="{{ "" | relURL }}" aria-label="{{ .Site.Title }} 홈">
+        <span class="brand-mark">S</span>
+        <span>
+          <strong>{{ .Site.Title }}</strong>
+          <small>study notes</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a href="{{ "" | relURL }}">Home</a>
+        <a href="{{ "GCP/" | relURL }}">GCP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
     {{ block "main" . }}{{ end }}
   </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>기술 실습을 짧고 명확하게 정리하는 스터디 노트.</p>
+      <p>Built with Hugo · GitHub Pages</p>
+    </div>
+  </footer>
 </body>
 </html>

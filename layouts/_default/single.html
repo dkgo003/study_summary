@@ -1,5 +1,21 @@
 {{ define "main" }}
-<article>
-  {{ .Content }}
+<article class="article shell narrow">
+  <header class="article-header">
+    <a class="back-link" href="{{ .Section | relURL }}">← {{ .Section }} 목록</a>
+    <div class="note-meta">
+      <span>{{ .Section }}</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+    </div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.tags }}
+      <div class="tags">
+        {{ range . }}<span>#{{ . }}</span>{{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <div class="content">
+    {{ .Content }}
+  </div>
 </article>
 {{ end }}

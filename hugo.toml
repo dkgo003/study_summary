@@ -1,5 +1,5 @@
 baseURL = "https://dkgo003.github.io/study_summary/"
-languageCode = "ko-kr"
+locale = "ko-KR"
 title = "Study Summary"
 
 defaultContentLanguage = "ko"

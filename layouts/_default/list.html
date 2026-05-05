@@ -1,8 +1,24 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<ul>
-  {{ range .Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
+<section class="section shell narrow">
+  <div class="section-heading">
+    <p class="eyebrow">Section</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
+  </div>
+
+  <div class="note-list">
+    {{ range .Pages }}
+      <article class="note-row">
+        <div class="note-meta">
+          <span>{{ .Section }}</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+        </div>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+      </article>
+    {{ else }}
+      <p class="empty">이 섹션에는 아직 노트가 없습니다.</p>
+    {{ end }}
+  </div>
+</section>
 {{ end }}
