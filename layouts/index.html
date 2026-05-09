@@ -1,24 +1,86 @@
 {{ define "main" }}
-<section class="hero">
+<section class="hero hero-showcase" aria-labelledby="hero-title">
   <div class="shell hero-grid">
-    <div>
+    <div class="hero-main">
       <p class="eyebrow">Technical Study Notes</p>
-      <h1>실습하며 배운 내용을<br>나중에 다시 찾기 쉽게 정리합니다.</h1>
+      <h1 id="hero-title"><span>실습 기록을</span><br>쉽고 정확하게<br>다시 찾습니다.</h1>
       <p class="hero-copy">GCP, Terraform, Kubernetes 같은 기술 학습 기록을 문제·명령어·결과 중심으로 압축한 스터디 요약 사이트입니다.</p>
+
+      <form class="hero-search" action="https://www.google.com/search" method="get" role="search" aria-label="사이트 검색">
+        <input type="hidden" name="sitesearch" value="{{ .Site.BaseURL }}">
+        <span aria-hidden="true">⌕</span>
+        <input name="q" type="search" placeholder="필요한 실습 노트를 검색해보세요" aria-label="검색어">
+        <button type="submit">검색</button>
+      </form>
+
+      <div class="quick-tags" aria-label="추천 검색어">
+        <span>추천 키워드</span>
+        <a href="{{ "GCP/" | relURL }}">GCP</a>
+        <a href="#project-map">Terraform</a>
+        <a href="#project-map">Kubernetes</a>
+        <a href="#latest-notes">최신 노트</a>
+      </div>
+
       <div class="hero-actions">
         <a class="button primary" href="#latest-notes">최근 노트 보기</a>
         <a class="button ghost" href="{{ "GCP/" | relURL }}">GCP 섹션</a>
       </div>
     </div>
-    <aside class="hero-card" aria-label="사이트 특징">
-      <span class="card-kicker">Note style</span>
-      <ul>
-        <li>실습 목적과 핵심 개념 먼저 정리</li>
-        <li>명령어와 코드블럭 가독성 강화</li>
-        <li>다크/라이트 모드 자동 대응</li>
-      </ul>
+
+    <aside class="hero-highlight" aria-label="프로젝트 하이라이트">
+      <div class="highlight-card">
+        <span class="card-kicker">Project highlight</span>
+        <h2>GCP 실습 정리</h2>
+        <p>Terraform, IAM, VPC, GKE 실습 과정을 명령어와 결과 중심으로 빠르게 복기합니다.</p>
+        <div class="highlight-meta">
+          <span>IaC</span>
+          <span>Cloud</span>
+          <span>GKE</span>
+        </div>
+        <a class="highlight-link" href="{{ "GCP/" | relURL }}">섹션 보기 →</a>
+      </div>
+      <div class="slider-dots" aria-hidden="true"><span></span><span></span><span class="active"></span></div>
     </aside>
   </div>
+</section>
+
+<section id="project-map" class="project-map shell" aria-labelledby="project-map-title">
+  <div class="project-intro-card">
+    <div>
+      <p class="eyebrow">Note style</p>
+      <h2 id="project-map-title">어떤 프로젝트와 실습을 정리하나요?</h2>
+      <p>이 공간은 단순 메모장이 아니라, 나중에 같은 문제를 다시 만났을 때 바로 재현할 수 있도록 정리한 기술 프로젝트 아카이브입니다.</p>
+    </div>
+    <div class="project-pill-grid" aria-label="정리 대상">
+      <span>Cloud infra</span>
+      <span>Terraform IaC</span>
+      <span>Kubernetes</span>
+      <span>Troubleshooting</span>
+    </div>
+  </div>
+</section>
+
+<section class="category-strip shell" aria-label="주요 학습 카테고리">
+  <a class="category-card" href="{{ "GCP/" | relURL }}">
+    <span class="category-icon">☁</span>
+    <strong>GCP</strong>
+    <small>실습 노트</small>
+  </a>
+  <a class="category-card" href="#project-map">
+    <span class="category-icon">⌘</span>
+    <strong>Terraform</strong>
+    <small>IaC 패턴</small>
+  </a>
+  <a class="category-card" href="#project-map">
+    <span class="category-icon">◇</span>
+    <strong>Kubernetes</strong>
+    <small>클러스터 운영</small>
+  </a>
+  <a class="category-card" href="#latest-notes">
+    <span class="category-icon">↯</span>
+    <strong>Errors</strong>
+    <small>문제 해결</small>
+  </a>
 </section>
 
 <section id="latest-notes" class="section shell">
