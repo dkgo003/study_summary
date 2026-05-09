@@ -3,14 +3,12 @@ title: "분자 도킹 도구 정리: Vina, Gnina, Ledock, Reduce"
 date: "2026-05-09"
 draft: false
 slug: "분자-도킹-도구-정리-vina-gnina-ledock-reduce"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-8088-b65c-c8e48a206d21"
 categories:
   - "기술"
 tags: []
 ---
-
-# 분자 도킹 도구 정리: Vina, Gnina, Ledock, Reduce
 
 분자 도킹은 작은 분자 리간드가 단백질 같은 표적에 어떻게 결합할지 예측하는 계산 기법이다. 신약 후보 물질 탐색이나 가상 스크리닝에서 자주 사용되며, Vina, Gnina, Ledock, Reduce 같은 도구가 함께 언급된다.
 

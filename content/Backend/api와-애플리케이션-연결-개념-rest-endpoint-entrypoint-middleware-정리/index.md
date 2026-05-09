@@ -3,14 +3,12 @@ title: "API와 애플리케이션 연결 개념: REST, Endpoint, Entrypoint, Mid
 date: "2026-05-09"
 draft: false
 slug: "api와-애플리케이션-연결-개념-rest-endpoint-entrypoint-middleware-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-807e-b822-f98297ecb08b"
 categories:
   - "기술"
 tags: []
 ---
-
-# API와 애플리케이션 연결 개념: REST, Endpoint, Entrypoint, Middleware 정리
 
 애플리케이션은 혼자 동작하지 않는다. 외부 서비스와 API로 통신하고, 네트워크 접점인 Endpoint를 통해 요청을 받으며, 컨테이너나 프로그램의 Entrypoint에서 실행을 시작한다. Middleware는 이런 연결을 더 안정적으로 만들어주는 중간 계층이다.
 

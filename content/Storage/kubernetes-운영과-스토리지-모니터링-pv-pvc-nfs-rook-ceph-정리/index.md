@@ -3,14 +3,12 @@ title: "Kubernetes 운영과 스토리지: 모니터링, PV/PVC, NFS, Rook-Ceph 
 date: "2026-05-09"
 draft: false
 slug: "kubernetes-운영과-스토리지-모니터링-pv-pvc-nfs-rook-ceph-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-809a-b602-f43490d0c3fe"
 categories:
   - "기술"
 tags: []
 ---
-
-# Kubernetes 운영과 스토리지: 모니터링, PV/PVC, NFS, Rook-Ceph 정리
 
 Kubernetes를 실제로 운영하면 배포보다 더 중요한 문제가 생긴다. 애플리케이션 상태를 어떻게 확인할지, 장애를 어떻게 추적할지, 상태 저장 데이터는 어디에 둘지 결정해야 한다. 이 글은 Kubernetes 운영과 스토리지 개념을 함께 정리한다.
 

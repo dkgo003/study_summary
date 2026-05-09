@@ -3,14 +3,12 @@ title: "Kubernetes와 컨테이너 운영 기초 정리"
 date: "2026-05-09"
 draft: false
 slug: "kubernetes와-컨테이너-운영-기초-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-80d8-9eec-dd733aa4c545"
 categories:
   - "기술"
 tags: []
 ---
-
-# Kubernetes와 컨테이너 운영 기초 정리
 
 컨테이너 기반 애플리케이션을 운영하려면 Docker로 실행 단위를 만들고, Kubernetes로 여러 서버 위의 컨테이너 상태를 안정적으로 관리하는 흐름을 이해해야 한다. 이 글은 컨테이너, Kubernetes 오브젝트, YAML manifest, 선언적 운영 방식을 하나의 흐름으로 정리한다.
 

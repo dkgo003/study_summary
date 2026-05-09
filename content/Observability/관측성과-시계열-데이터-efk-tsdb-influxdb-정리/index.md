@@ -3,14 +3,12 @@ title: "관측성과 시계열 데이터: EFK, TSDB, InfluxDB 정리"
 date: "2026-05-09"
 draft: false
 slug: "관측성과-시계열-데이터-efk-tsdb-influxdb-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-80da-b18d-c36e9e1c2189"
 categories:
   - "기술"
 tags: []
 ---
-
-# 관측성과 시계열 데이터: EFK, TSDB, InfluxDB 정리
 
 운영 환경에서는 애플리케이션이 정상 동작하는지 계속 확인해야 한다. 이를 위해 로그, 메트릭, 이벤트를 수집하고 검색하고 시각화하는 관측성 구조가 필요하다. EFK는 로그 중심, TSDB와 InfluxDB는 시간 기반 메트릭 중심으로 이해하면 쉽다.
 

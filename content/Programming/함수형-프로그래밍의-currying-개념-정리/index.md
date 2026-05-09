@@ -3,14 +3,12 @@ title: "함수형 프로그래밍의 Currying 개념 정리"
 date: "2026-05-09"
 draft: false
 slug: "함수형-프로그래밍의-currying-개념-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-806e-b23a-f9dca98cc6eb"
 categories:
   - "기술"
 tags: []
 ---
-
-# 함수형 프로그래밍의 Currying 개념 정리
 
 Currying은 여러 인자를 받는 함수를 인자 하나를 받는 함수들의 연쇄로 바꾸는 함수형 프로그래밍 기법이다. 처음에는 낯설지만, 특정 인자를 미리 고정해 재사용 가능한 함수를 만들 때 유용하다.
 

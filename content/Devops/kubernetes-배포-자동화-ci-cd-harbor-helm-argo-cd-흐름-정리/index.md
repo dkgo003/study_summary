@@ -3,14 +3,12 @@ title: "Kubernetes 배포 자동화: CI/CD, Harbor, Helm, Argo CD 흐름 정리"
 date: "2026-05-09"
 draft: false
 slug: "kubernetes-배포-자동화-ci-cd-harbor-helm-argo-cd-흐름-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-80d8-9f9e-fdedc6e42ee2"
 categories:
   - "기술"
 tags: []
 ---
-
-# Kubernetes 배포 자동화: CI/CD, Harbor, Helm, Argo CD 흐름 정리
 
 Kubernetes 환경에서 배포 자동화는 단순히 코드를 서버에 복사하는 작업이 아니다. 코드 변경을 검증하고, 컨테이너 이미지를 만들고, 레지스트리에 저장하고, Git에 선언된 배포 상태를 클러스터에 반영하는 흐름으로 구성된다.
 

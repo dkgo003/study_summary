@@ -1,16 +1,14 @@
 ---
 title: "[04.18] GCP 개인 실습 — Terraform + IAM + VPC + GKE"
-date: "2026-05-05"
+date: "2026-05-09"
 draft: false
 slug: "04-18-gcp-개인-실습-terraform-iam-vpc-gke"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "3561d13b-f2d8-8032-bcfd-ffa0beeeac19"
 categories:
   - "기술"
 tags: []
 ---
-
-# [04.18] GCP 개인 실습 — Terraform + IAM + VPC + GKE
 
 ## 환경 세팅
 

@@ -3,14 +3,12 @@ title: "Argo Workflows와 MLOps: DAG, Hera, Kubeflow, MLflow 흐름 정리"
 date: "2026-05-09"
 draft: false
 slug: "argo-workflows와-mlops-dag-hera-kubeflow-mlflow-흐름-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-8084-a647-da93cbcc8d99"
 categories:
   - "기술"
 tags: []
 ---
-
-# Argo Workflows와 MLOps: DAG, Hera, Kubeflow, MLflow 흐름 정리
 
 데이터 처리와 머신러닝 작업은 단일 스크립트보다 여러 단계의 작업 흐름으로 구성되는 경우가 많다. Argo Workflows는 Kubernetes 위에서 컨테이너 기반 워크플로우를 실행하고, Hera는 이를 Python으로 정의하게 돕는다. Kubeflow와 MLflow는 머신러닝 라이프사이클을 운영하는 데 자주 함께 언급된다.
 

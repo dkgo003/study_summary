@@ -3,14 +3,12 @@ title: "개발 협업과 코드 관리: Agile, Git, GitHub, GitLab 정리"
 date: "2026-05-09"
 draft: false
 slug: "개발-협업과-코드-관리-agile-git-github-gitlab-정리"
-notion_status: "Approved"
+notion_status: "Published"
 notion_page_id: "35b1d13b-f2d8-808a-989f-caa7af610f01"
 categories:
   - "기술"
 tags: []
 ---
-
-# 개발 협업과 코드 관리: Agile, Git, GitHub, GitLab 정리
 
 개발은 코드를 작성하는 일만으로 끝나지 않는다. 요구사항을 어떻게 나누고, 변경 이력을 어떻게 관리하고, 팀원과 어떻게 리뷰하고 배포할지까지 포함한다. Agile은 일하는 방식이고, Git은 변경 이력을 관리하는 도구이며, GitHub와 GitLab은 협업 플랫폼이다.
 
