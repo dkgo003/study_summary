@@ -1,0 +1,67 @@
+<aside class="article-toc" aria-label="문서 목차" data-toc>
+  <p class="sidebar-label">On this page</p>
+  {{ .TableOfContents }}
+</aside>
+
+<script>
+  (() => {
+    const initTocHighlight = () => {
+      const toc = document.querySelector('[data-toc]');
+      if (!toc || !('IntersectionObserver' in window)) return;
+
+      const links = Array.from(toc.querySelectorAll('a[href^="#"]'));
+      const headings = links
+        .map((link) => {
+          const id = decodeURIComponent(link.hash.slice(1));
+          return id ? document.getElementById(id) : null;
+        })
+        .filter(Boolean);
+
+      if (!links.length || !headings.length) return;
+
+      const setActive = (id) => {
+        links.forEach((link) => {
+          const isActive = decodeURIComponent(link.hash.slice(1)) === id;
+          link.classList.toggle('is-active', isActive);
+          if (isActive) {
+            link.setAttribute('aria-current', 'true');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const visibleHeadings = new Map();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleHeadings.set(entry.target.id, entry.boundingClientRect.top);
+          } else {
+            visibleHeadings.delete(entry.target.id);
+          }
+        });
+
+        if (visibleHeadings.size) {
+          const [activeId] = Array.from(visibleHeadings.entries()).sort((a, b) => a[1] - b[1])[0];
+          setActive(activeId);
+          return;
+        }
+
+        const current = [...headings].reverse().find((heading) => heading.getBoundingClientRect().top <= 140);
+        if (current) setActive(current.id);
+      }, {
+        rootMargin: '-18% 0px -68% 0px',
+        threshold: [0, 1]
+      });
+
+      headings.forEach((heading) => observer.observe(heading));
+      setActive(headings[0].id);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTocHighlight, { once: true });
+    } else {
+      initTocHighlight();
+    }
+  })();
+</script>

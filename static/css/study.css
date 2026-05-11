@@ -559,7 +559,13 @@ img { max-width: 100%; height: auto; border-radius: 18px; }
 }
 .sidebar-nav a[aria-current="page"],
 .sidebar-nav a:hover,
-.article-toc a:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
+.article-toc a:hover,
+.article-toc a.is-active,
+.article-toc a[aria-current="true"] { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
+.article-toc a.is-active,
+.article-toc a[aria-current="true"] {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
 .article-toc ul { margin: 0; padding-left: 0; list-style: none; }
 .article-toc li ul { margin-top: 6px; padding-left: 10px; border-left: 1px solid var(--line); }
 .article-toc #TableOfContents:empty::after {

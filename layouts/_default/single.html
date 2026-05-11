@@ -23,10 +23,7 @@
 
     {{ partial "sidebar.html" . }}
 
-    <aside class="article-toc" aria-label="문서 목차">
-      <p class="sidebar-label">On this page</p>
-      {{ .TableOfContents }}
-    </aside>
+    {{ partial "toc.html" . }}
   </div>
 </article>
 {{ end }}
