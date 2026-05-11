@@ -1,0 +1,23 @@
+{{ $homeURL := "" | relURL }}
+{{ $githubURL := .Site.Params.githubURL | default "https://github.com/dkgo003" }}
+{{ $profileImage := .Site.Params.profileImage | default "https://github.com/dkgo003.png" }}
+
+<aside class="article-sidebar" aria-label="프로필 및 섹션 목록">
+  <a class="sidebar-profile" href="{{ $homeURL }}" aria-label="홈으로 이동">
+    <img src="{{ $profileImage }}" alt="프로필 이미지" loading="lazy">
+  </a>
+
+  <a class="sidebar-social" href="{{ $githubURL }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub 프로필 열기">
+    <span aria-hidden="true">GitHub</span>
+    <strong>dkgo003</strong>
+  </a>
+
+  <div class="sidebar-section-list">
+    <p class="sidebar-label">Sections</p>
+    <nav class="sidebar-nav" aria-label="섹션 목록">
+      {{ range sort .Site.Sections "Section" }}
+        <a href="{{ .RelPermalink }}"{{ if eq .Section $.Section }} aria-current="page"{{ end }}>{{ .Section }}</a>
+      {{ end }}
+    </nav>
+  </div>
+</aside>

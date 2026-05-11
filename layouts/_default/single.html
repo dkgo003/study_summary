@@ -21,14 +21,7 @@
       </div>
     </div>
 
-    <aside class="article-sidebar" aria-label="섹션 목록">
-      <p class="sidebar-label">Sections</p>
-      <nav class="sidebar-nav">
-        {{ range sort .Site.Sections "Section" }}
-          <a href="{{ .RelPermalink }}"{{ if eq .Section $.Section }} aria-current="page"{{ end }}>{{ .Section }}</a>
-        {{ end }}
-      </nav>
-    </aside>
+    {{ partial "sidebar.html" . }}
 
     <aside class="article-toc" aria-label="문서 목차">
       <p class="sidebar-label">On this page</p>
