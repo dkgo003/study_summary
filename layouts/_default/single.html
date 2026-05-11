@@ -1,21 +1,39 @@
 {{ define "main" }}
-<article class="article shell narrow">
-  <header class="article-header">
-    <a class="back-link" href="{{ .Section | relURL }}">← {{ .Section }} 목록</a>
-    <div class="note-meta">
-      <span>{{ .Section }}</span>
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
-    </div>
-    <h1>{{ .Title }}</h1>
-    {{ with .Params.tags }}
-      <div class="tags">
-        {{ range . }}<span>#{{ . }}</span>{{ end }}
-      </div>
-    {{ end }}
-  </header>
+<article class="article shell article-shell">
+  <div class="article-layout">
+    <div class="article-main">
+      <header class="article-header">
+        <a class="back-link" href="{{ .Section | relURL }}">← {{ .Section }} 목록</a>
+        <div class="note-meta">
+          <span>{{ .Section }}</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+        </div>
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.tags }}
+          <div class="tags">
+            {{ range . }}<span>#{{ . }}</span>{{ end }}
+          </div>
+        {{ end }}
+      </header>
 
-  <div class="content">
-    {{ .Content }}
+      <div class="content">
+        {{ .Content }}
+      </div>
+    </div>
+
+    <aside class="article-sidebar" aria-label="섹션 목록">
+      <p class="sidebar-label">Sections</p>
+      <nav class="sidebar-nav">
+        {{ range sort .Site.Sections "Section" }}
+          <a href="{{ .RelPermalink }}"{{ if eq .Section $.Section }} aria-current="page"{{ end }}>{{ .Section }}</a>
+        {{ end }}
+      </nav>
+    </aside>
+
+    <aside class="article-toc" aria-label="문서 목차">
+      <p class="sidebar-label">On this page</p>
+      {{ .TableOfContents }}
+    </aside>
   </div>
 </article>
 {{ end }}
