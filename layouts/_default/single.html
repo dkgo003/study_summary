@@ -9,19 +9,81 @@
         </a>
         <h1>{{ .Title }}</h1>
         <time class="article-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006.01.02 15:04" }}</time>
-        {{ with .Params.tags }}
-          <div class="tags">
-            {{ range . }}<span>#{{ . }}</span>{{ end }}
-          </div>
-        {{ end }}
       </header>
 
       <div class="content">
         {{ .Content }}
       </div>
+
+      <footer class="article-footer">
+        <section class="article-tags" aria-label="태그 목록">
+          <h2>Tags</h2>
+          {{ with .Params.tags }}
+            <div class="tags">
+              {{ range . }}
+                <a href="{{ printf "tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+              {{ end }}
+            </div>
+          {{ else }}
+            <p class="empty-tags">태그 없음</p>
+          {{ end }}
+        </section>
+
+        <nav class="post-nav" aria-label="같은 섹션의 이전글과 다음글">
+          {{ with .PrevInSection }}
+            <a class="post-nav-link prev" href="{{ .RelPermalink }}">
+              <span>이전글</span>
+              <strong>{{ .Title }}</strong>
+            </a>
+          {{ else }}
+            <span class="post-nav-link disabled prev">
+              <span>이전글</span>
+              <strong>이전 글이 없습니다</strong>
+            </span>
+          {{ end }}
+          {{ with .NextInSection }}
+            <a class="post-nav-link next" href="{{ .RelPermalink }}">
+              <span>다음글</span>
+              <strong>{{ .Title }}</strong>
+            </a>
+          {{ else }}
+            <span class="post-nav-link disabled next">
+              <span>다음글</span>
+              <strong>다음 글이 없습니다</strong>
+            </span>
+          {{ end }}
+        </nav>
+      </footer>
     </div>
 
     {{ partial "toc.html" . }}
   </div>
 </article>
+
+<script>
+  (() => {
+    const buttons = document.querySelectorAll('[data-copy-code]');
+    buttons.forEach((button) => {
+      button.addEventListener('click', async () => {
+        const codeWindow = button.closest('[data-code-window]');
+        const code = codeWindow?.querySelector('code');
+        if (!code) return;
+
+        const originalText = button.textContent;
+        try {
+          await navigator.clipboard.writeText(code.innerText);
+          button.textContent = '복사됨';
+          button.classList.add('is-copied');
+        } catch (error) {
+          button.textContent = '실패';
+        }
+
+        window.setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('is-copied');
+        }, 1400);
+      });
+    });
+  })();
+</script>
 {{ end }}

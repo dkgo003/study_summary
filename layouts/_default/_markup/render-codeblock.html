@@ -1,0 +1,19 @@
+{{ $lang := .Type | default "text" }}
+<div class="code-window" data-code-window>
+  <div class="code-window-header">
+    <span class="code-window-dots" aria-hidden="true">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </span>
+    <span class="code-language">{{ $lang }}</span>
+    <button class="code-copy-button" type="button" data-copy-code>복사</button>
+  </div>
+  <div class="code-window-body">
+    {{ if .Type }}
+      {{ highlight .Inner .Type }}
+    {{ else }}
+      <pre><code>{{ .Inner | htmlEscape }}</code></pre>
+    {{ end }}
+  </div>
+</div>

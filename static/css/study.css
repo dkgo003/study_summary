@@ -558,7 +558,8 @@ img { max-width: 100%; height: auto; border-radius: 18px; }
   font-weight: 800;
   letter-spacing: .02em;
 }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tags a,
 .tags span {
   padding: 6px 10px;
   border-radius: 999px;
@@ -568,6 +569,52 @@ img { max-width: 100%; height: auto; border-radius: 18px; }
   font-size: .86rem;
   font-weight: 700;
 }
+.tags a:hover { border-color: color-mix(in srgb, var(--accent) 48%, var(--line)); color: var(--accent); }
+.article-footer {
+  margin-top: 54px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.article-tags h2 {
+  margin: 0;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.empty-tags { margin: 10px 0 0; color: var(--muted); font-size: .92rem; }
+.post-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+.post-nav-link {
+  display: grid;
+  gap: 6px;
+  min-height: 106px;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+.post-nav-link.next { text-align: right; }
+.post-nav-link span {
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.post-nav-link strong {
+  color: var(--text);
+  line-height: 1.38;
+}
+.post-nav-link:hover { border-color: color-mix(in srgb, var(--accent) 42%, var(--line)); transform: translateY(-1px); }
+.post-nav-link.disabled { opacity: .58; box-shadow: none; }
+.post-nav-link.disabled strong { color: var(--muted); }
 .content { font-size: 1.02rem; }
 .content h2, .content h3, .content h4 {
   margin-top: 2.2em;
@@ -617,6 +664,57 @@ img { max-width: 100%; height: auto; border-radius: 18px; }
   font-size: .92rem;
   line-height: 1.65;
 }
+
+.code-window {
+  margin: 1.5em 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--code-text) 12%, transparent);
+  border-radius: 18px;
+  background: var(--code-bg);
+  box-shadow: var(--shadow);
+}
+.code-window-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--code-text) 12%, transparent);
+  background: color-mix(in srgb, var(--code-bg) 88%, white 12%);
+}
+.code-window-dots { display: inline-flex; gap: 7px; }
+.code-window-dots .dot { width: 11px; height: 11px; border-radius: 999px; }
+.code-window-dots .red { background: #ff5f57; }
+.code-window-dots .yellow { background: #ffbd2e; }
+.code-window-dots .green { background: #28c840; }
+.code-language {
+  justify-self: end;
+  color: color-mix(in srgb, var(--code-text) 72%, transparent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.code-copy-button {
+  border: 1px solid color-mix(in srgb, var(--code-text) 18%, transparent);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: color-mix(in srgb, var(--code-text) 9%, transparent);
+  color: var(--code-text);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.code-copy-button:hover,
+.code-copy-button.is-copied { background: var(--accent); border-color: var(--accent); color: white; }
+.code-window-body pre {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.code-window-body pre code { font-size: .92rem; }
 .content table {
   display: block;
   width: 100%;
@@ -652,6 +750,10 @@ img { max-width: 100%; height: auto; border-radius: 18px; }
 }
 
 @media (max-width: 560px) {
+  .post-nav { grid-template-columns: 1fr; }
+  .post-nav-link.next { text-align: left; }
+  .code-window-header { grid-template-columns: auto 1fr; }
+  .code-copy-button { grid-column: 1 / -1; justify-self: start; }
   .hero-search { grid-template-columns: auto 1fr; }
   .hero-search button { grid-column: 1 / -1; width: 100%; }
   .summary-stats, .summary-grid { grid-template-columns: 1fr; }
