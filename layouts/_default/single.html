@@ -1,4 +1,5 @@
 {{ define "main" }}
+<div class="article-progress" aria-hidden="true"><span></span></div>
 <article class="article shell article-shell">
   <div class="article-layout">
     <div class="article-main">
@@ -62,28 +63,19 @@
 
 <script>
   (() => {
-    const buttons = document.querySelectorAll('[data-copy-code]');
-    buttons.forEach((button) => {
-      button.addEventListener('click', async () => {
-        const codeWindow = button.closest('[data-code-window]');
-        const code = codeWindow?.querySelector('code');
-        if (!code) return;
+    const progressBar = document.querySelector('.article-progress span');
+    if (!progressBar) return;
 
-        const originalText = button.textContent;
-        try {
-          await navigator.clipboard.writeText(code.innerText);
-          button.textContent = '복사됨';
-          button.classList.add('is-copied');
-        } catch (error) {
-          button.textContent = '실패';
-        }
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+    };
 
-        window.setTimeout(() => {
-          button.textContent = originalText;
-          button.classList.remove('is-copied');
-        }, 1400);
-      });
-    });
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
   })();
 </script>
 {{ end }}
